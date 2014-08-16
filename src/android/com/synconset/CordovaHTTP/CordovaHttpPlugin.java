@@ -46,6 +46,8 @@ public class CordovaHttpPlugin extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         this.globalHeaders = new HashMap<String, String>();
+        // accept all cookies and store them for further request (as on ios)
+        CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));
     }
 
     @Override
